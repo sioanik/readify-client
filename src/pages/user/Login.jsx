@@ -54,7 +54,7 @@ const Login = () => {
 
                 <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
                     <div className="flex justify-center mx-auto">
-                        <p className="text-2xl font-bold">Readify</p>
+                        <p className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text text-2xl font-bold">Readify</p>
                     </div>
 
                     <p className="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">

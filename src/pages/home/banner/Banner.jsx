@@ -1,28 +1,34 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 import banner1 from '../../../assets/banner1.jpg'
 import banner2 from '../../../assets/banner2.jpg'
 import banner3 from '../../../assets/banner3.jpg'
 import banner4 from '../../../assets/banner4.jpg'
 
-import 'swiper/css/navigation';
+
+import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 
 const Banner = () => {
     return (
         <div className=''>
             <Swiper
-                modules={[Navigation]}
-                navigation={{ clickable: true }}
-
-                spaceBetween={50}
-                slidesPerView={1}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-            >
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                  delay: 6000,
+                  disableOnInteraction: false,
+                }}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+              >
                 <SwiperSlide>
 
                     <div className="hero h-96" style={{ backgroundImage: `url(${banner1})` }}>

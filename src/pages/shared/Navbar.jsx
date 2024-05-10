@@ -59,7 +59,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl font-bold" href="/">Readify</a>
+                    <a className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text btn btn-ghost text-xl font-bold" href="/">Readify</a>
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -80,7 +80,7 @@ const Navbar = () => {
                             <div className='flex justify-center items-center gap-5'>
                                 <div className="text-black avatar tooltip tooltip-bottom">
                                     <div data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} className="w-12 rounded-full">
-                                        <img src={user?.photoURL} />
+                                        <img referrerPolicy="no-referrer" src={user?.photoURL} />
                                         <Tooltip id="my-tooltip" />
                                     </div>
 
