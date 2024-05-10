@@ -6,12 +6,17 @@ import BorrowedBooks from "../pages/borrowed books/BorrowedBooks";
 import Login from "../pages/user/Login";
 import Register from "../pages/user/Register";
 import ProtectedRoute from "./ProtectedRoute";
+import Home from "../pages/home/home/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
       {
         path: '/all-books',
         element: <ProtectedRoute>

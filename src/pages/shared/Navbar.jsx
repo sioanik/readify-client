@@ -87,15 +87,15 @@ const Navbar = () => {
 
                                 </div>
 
-                                <button onClick={() => logOut()} className='btn btn-sm btn-primary'>Logout</button>
+                                <button onClick={() => logOut()} className='btn btn-sm btn-neutral'>Logout</button>
 
                             </div> :
 
                             <div className="flex gap-2">
-                                <button className='btn btn-xs h-9 btn-primary'>
+                                <button className='btn btn-xs h-9 btn-neutral'>
                                     <Link to={'/register'}>Register</Link>
                                 </button>
-                                <button className='btn btn-xs h-9 btn-primary'>
+                                <button className='btn btn-xs h-9 btn-neutral'>
                                     <Link to={'/login'}>Login</Link>
                                 </button>
                             </div>
