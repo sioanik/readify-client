@@ -3,6 +3,9 @@ import MainLayout from "../layout/MainLayout";
 import AllBooks from "../pages/all books/AllBooks";
 import AddBook from "../pages/add book/AddBook";
 import BorrowedBooks from "../pages/borrowed books/BorrowedBooks";
+import Login from "../pages/user/Login";
+import Register from "../pages/user/Register";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -11,15 +14,29 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/all-books',
-        element: <AllBooks></AllBooks>
+        element: <ProtectedRoute>
+          <AllBooks></AllBooks>
+        </ProtectedRoute>
       },
       {
         path: '/add-book',
-        element: <AddBook></AddBook>
+        element: <ProtectedRoute>
+          <AddBook></AddBook>
+        </ProtectedRoute>
       },
       {
         path: '/borrowed-books',
-        element: <BorrowedBooks></BorrowedBooks>
+        element: <ProtectedRoute>
+          <BorrowedBooks></BorrowedBooks>
+        </ProtectedRoute>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       },
     ]
   },
