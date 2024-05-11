@@ -9,6 +9,9 @@ import ProtectedRoute from "./ProtectedRoute";
 import Home from "../pages/home/home/Home";
 import ErrorPage from "../pages/error/ErrorPage";
 import CategoryItems from "../pages/categoryBooks/CategoryItems";
+import BookDetails from "../pages/bookDetails/BookDetails";
+import UpdateBook from "../pages/updateBook/UpdateBook";
+
 
 const router = createBrowserRouter([
   {
@@ -26,13 +29,23 @@ const router = createBrowserRouter([
         path: '/all-books',
         element: <ProtectedRoute>
           <AllBooks></AllBooks>
-        </ProtectedRoute>
+        </ProtectedRoute>,
+        loader: ()=>fetch(`${import.meta.env.VITE_API_URL}/books`),
       },
       {
         path: '/add-book',
         element: <ProtectedRoute>
           <AddBook></AddBook>
         </ProtectedRoute>
+        
+      },
+      {
+        path: '/update-book/:id',
+        element: <ProtectedRoute>
+          <UpdateBook></UpdateBook>
+        </ProtectedRoute>,
+        // loader: ({params})=>fetch(`${import.meta.env.VITE_API_URL}/updateBook/${params.id}`),
+        
       },
       {
         path: '/borrowed-books',
@@ -54,8 +67,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/book-details/:id',
-        element: <CategoryItems></CategoryItems>
+        element: <BookDetails></BookDetails>
       },
+  
     ]
   },
 ]);

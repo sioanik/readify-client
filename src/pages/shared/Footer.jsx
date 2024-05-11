@@ -8,7 +8,7 @@ const Footer = () => {
             <footer className="">
                 <div className="container mt-12 px-6 py-8 mx-auto">
                     <div className="flex flex-col items-center text-center">
-                        <a href="#">
+                        <a href="/">
                             <p className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text text-2xl font-extrabold">Readify</p>
                         </a>
 

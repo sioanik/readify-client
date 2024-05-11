@@ -20,7 +20,7 @@ const CategoryItems = () => {
 
         }
         getData()
-    }, [])
+    }, [category])
 
 
     // useEffect(() => {
@@ -54,8 +54,8 @@ const CategoryItems = () => {
                                 <Rating
                                  initialRating={item.rating}></Rating>
                                 </div>
-                                <Link to={`book-details/${item._id}`}>
-                                <button className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-accent rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Details</button>
+                                <Link to={`/book-details/${item._id}`}>
+                                <button className="px-2 py-1 text-lg font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-accent rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Details</button>
                                 </Link>
                             </div>
                         </div>

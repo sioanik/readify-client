@@ -1,16 +1,31 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../user/AuthProvider";
-import axios from "axios";
+import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const AddBook = () => {
+const UpdateBook = () => {
 
     const { user } = useContext(AuthContext)
 
-    const handleAddBook  = (e) => {
-        e.preventDefault()
+    const { id } = useParams()
+    // console.log(id);
 
+    const [item, setItem] = useState({})
+
+
+    useEffect(() => {
+        fetch(`${import.meta.env.VITE_API_URL}/update-book/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setItem(data)
+                // console.log(data);
+            })
+    }, [id])
+    // console.log(item);
+
+    const handleUpdateBook  = (e) => {
+        e.preventDefault()
 
         const form = e.target
         const name = form.book_name.value
@@ -31,19 +46,10 @@ const AddBook = () => {
 
         const newBook = { name, category, author, image, rating, quantity, description, contents, username, email }
 
-        // console.log(newBook);
+        console.log(newBook);
 
-        // try {
-        //     const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/books`, newBook)
-        //     console.log(data);
-        // }
-        // catch (error){
-        //     console.log(error.message);
-
-        // }
-
-        fetch(`${import.meta.env.VITE_API_URL}/books`, {
-            method: "POST",
+        fetch(`${import.meta.env.VITE_API_URL}/update-book/${id}`, {
+            method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
             },
@@ -51,11 +57,11 @@ const AddBook = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                if (data.insertedId) {
+                // console.log(data);
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Book added successfully',
+                        text: 'Book updated successfully',
                         icon: 'success',
                         confirmButtonText: 'Close'
                     })
@@ -71,26 +77,25 @@ const AddBook = () => {
 
 
 
-
-
     }
+
 
     return (
         <div>
             <div>
                 <div className="w-[80%] mx-auto my-14">
-                    <p className="text-2xl text-center py-8">Add Book</p>
-                    <p className="text-center md:px-20">Expand your literary universe by adding a new book to your library's collection.</p>
+                    <p className="text-2xl text-center py-8">Update Book</p>
+                    <p className="text-center md:px-20">Update your existing book here</p>
                 </div>
                 <div className="mt-10 px-10 mx-auto">
-                    <form onSubmit={handleAddBook}>
+                    <form onSubmit={handleUpdateBook}>
                         <div className="flex justify-center gap-6">
                             <div>
                                 <label className="form-control w-full max-w-xs">
                                     <div className="label">
                                         <span className="label-text">Book Name</span>
                                     </div>
-                                    <input type="text" name="book_name" placeholder="Enter Book Name" className="input input-bordered w-full max-w-xs" />
+                                    <input defaultValue={item.name} type="text" name="book_name" placeholder="Enter Book Name" className="input input-bordered w-full max-w-xs" />
 
                                 </label>
 
@@ -99,7 +104,7 @@ const AddBook = () => {
                                         <span className="label-text">Category Name</span>
                                     </div>
                                     <select className="input input-bordered w-full max-w-xs" name="" id="category">
-                                        <option value="">Select</option>
+                                        <option value="">{item.category}</option>
 
                                         <option value="Novel">Novel</option>
 
@@ -120,7 +125,7 @@ const AddBook = () => {
                                     <div className="label">
                                         <span className="label-text">Author</span>
                                     </div>
-                                    <input type="text" name="author" placeholder="Enter Author" className="input input-bordered w-full max-w-xs" />
+                                    <input defaultValue={item.author} type="text" name="author" placeholder="Enter Author" className="input input-bordered w-full max-w-xs" />
 
                                 </label>
 
@@ -133,7 +138,7 @@ const AddBook = () => {
                                     <div className="label">
                                         <span className="label-text">Image</span>
                                     </div>
-                                    <input type="url" name="image" placeholder="Enter Image url" className="input input-bordered w-full max-w-xs" />
+                                    <input defaultValue={item.image} type="url" name="image" placeholder="Enter Image url" className="input input-bordered w-full max-w-xs" />
 
                                 </label>
 
@@ -143,14 +148,14 @@ const AddBook = () => {
                                     <div className="label">
                                         <span className="label-text">Rating</span>
                                     </div>
-                                    <input type="number" name="rating" placeholder="Enter Rating" className="input input-bordered w-full max-w-xs" min="0" max="5"/>
+                                    <input defaultValue={item.rating} type="number" name="rating" placeholder="Enter Rating" className="input input-bordered w-full max-w-xs" min="0" max="5" />
 
                                 </label>
                                 <label className="form-control w-full max-w-xs">
                                     <div className="label">
                                         <span className="label-text">Quantity</span>
                                     </div>
-                                    <input type="number" name="quantity" placeholder="Enter Available Quantity" className="input input-bordered w-full max-w-xs" />
+                                    <input defaultValue={item.quantity} type="number" name="quantity" placeholder="Enter Available Quantity" className="input input-bordered w-full max-w-xs" />
 
                                 </label>
 
@@ -162,8 +167,8 @@ const AddBook = () => {
                                 <div className="label">
                                     <span className="label-text">Short Book Description</span>
                                 </div>
-                                {/* <input type="text" name="description" placeholder="Enter Short Description" className="input input-bordered w-full max-w-md" /> */}
-                                <textarea type="text" name="description" placeholder="Enter Short Description" className="input input-bordered w-full max-w-md"></textarea>
+
+                                <textarea defaultValue={item.description} type="text" name="description" placeholder="Enter Short Description" className="input input-bordered w-full max-w-md"></textarea>
 
                             </label>
                         </div>
@@ -172,35 +177,35 @@ const AddBook = () => {
                                 <div className="label">
                                     <span className="label-text">Book Contents</span>
                                 </div>
-                                {/* <input type="text" name="contents" placeholder="Enter Book Contents" className="input input-bordered w-full max-w-md" /> */}
+                  
 
-                                <textarea type="text" name="contents" placeholder="Enter Book Contents" className="input input-bordered w-full max-w-md"></textarea>
+                                <textarea defaultValue={item.contents} type="text" name="contents" placeholder="Enter Book Contents" className="input input-bordered w-full max-w-md"></textarea>
 
                             </label>
                         </div>
 
                         <div className="flex justify-center mt-4">
                             <div>
-                            <label className="form-control w-full max-w-xs">
-                                <div className="label">
-                                    <span className="label-text">User Email</span>
-                                </div>
-                                <input type="email" name="useremail" placeholder="User Email" defaultValue={user.email}  className="input input-bordered w-full max-w-xs" disabled />
+                                <label className="form-control w-full max-w-xs">
+                                    <div className="label">
+                                        <span className="label-text">User Email</span>
+                                    </div>
+                                    <input type="email" name="useremail" placeholder="User Email" defaultValue={user.email} className="input input-bordered w-full max-w-xs" disabled />
 
-                            </label>
-                        </div>
+                                </label>
+                            </div>
                             <div>
-                            <label className="form-control w-full max-w-xs">
-                                <div className="label">
-                                    <span className="label-text">User Name</span>
-                                </div>
-                                <input type="text" name="username" placeholder="User Name" defaultValue={user.displayName} className="input input-bordered w-full max-w-xs" disabled />
+                                <label className="form-control w-full max-w-xs">
+                                    <div className="label">
+                                        <span className="label-text">User Name</span>
+                                    </div>
+                                    <input type="text" name="username" placeholder="User Name" defaultValue={user.displayName} className="input input-bordered w-full max-w-xs" disabled />
 
-                            </label>
-                        </div>
+                                </label>
+                            </div>
                         </div>
                         <div className="flex justify-center">
-                            <input className="btn  btn-primary mt-8" type="submit" value="Add Book" />
+                            <input className="btn  btn-primary mt-8" type="submit" value="Update Book" />
                         </div>
                     </form>
                 </div>
@@ -209,4 +214,4 @@ const AddBook = () => {
     );
 };
 
-export default AddBook;
+export default UpdateBook;
