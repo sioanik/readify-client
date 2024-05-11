@@ -7,15 +7,19 @@ import Login from "../pages/user/Login";
 import Register from "../pages/user/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import Home from "../pages/home/home/Home";
+import ErrorPage from "../pages/error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
-        element: <Home></Home>
+        element: <Home></Home>,
+        // loader: ()=>fetch('http://localhost:5000/categories'),
+        loader: ()=>fetch(`${import.meta.env.VITE_API_URL}/categories`),
       },
       {
         path: '/all-books',

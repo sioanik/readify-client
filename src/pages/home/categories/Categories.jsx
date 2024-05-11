@@ -1,6 +1,7 @@
 
 
-const Categories = () => {
+const Categories = ({cats}) => {
+    console.log(cats);
     return (
         <div>
             
