@@ -8,6 +8,7 @@ import Register from "../pages/user/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import Home from "../pages/home/home/Home";
 import ErrorPage from "../pages/error/ErrorPage";
+import CategoryItems from "../pages/home/categories/CategoryItems";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/categories/:category',
+        element: <CategoryItems></CategoryItems>
       },
     ]
   },

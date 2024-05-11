@@ -8,7 +8,11 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Categories cats = {cats}></Categories>
+            <div className='mx-10 mt-20 grid grid-cols-2 gap-6'>
+            {
+                cats.map((item,idx) => <Categories key={idx} cats = {item}></Categories>)
+            }
+            </div>
         </div>
     );
 };
