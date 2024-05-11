@@ -1,14 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
-import AllBooks from "../pages/all books/AllBooks";
-import AddBook from "../pages/add book/AddBook";
-import BorrowedBooks from "../pages/borrowed books/BorrowedBooks";
+import AllBooks from "../pages/allBooks/AllBooks";
+import AddBook from "../pages/addBook/AddBook";
+import BorrowedBooks from "../pages/borrowedBooks/BorrowedBooks";
 import Login from "../pages/user/Login";
 import Register from "../pages/user/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import Home from "../pages/home/home/Home";
 import ErrorPage from "../pages/error/ErrorPage";
-import CategoryItems from "../pages/home/categories/CategoryItems";
+import CategoryItems from "../pages/categoryBooks/CategoryItems";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +50,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/categories/:category',
+        element: <CategoryItems></CategoryItems>
+      },
+      {
+        path: '/book-details/:id',
         element: <CategoryItems></CategoryItems>
       },
     ]
