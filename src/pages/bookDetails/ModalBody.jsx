@@ -20,6 +20,10 @@ const ModalBody = ({ book, id }) => {
     const quantityNumber = parseInt(book.quantity)
     console.log(quantityNumber);
 
+
+    
+
+
     const handleBorrow = (e) => {
         e.preventDefault()
 
