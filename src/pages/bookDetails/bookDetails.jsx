@@ -36,12 +36,12 @@ const BookDetails = () => {
 
         const getData = async () => {
             const { data } = await axios(`${import.meta.env.VITE_API_URL}/book-details/${id}`)
-            console.log(data);
+            // console.log(data);
             setBook(data)
         }
         getData()
     }, [id])
-    console.log(book);
+    // console.log(book);
 
 
 
@@ -55,7 +55,7 @@ const BookDetails = () => {
 
     function afterOpenModal() {
         // references are now sync'd and can be accessed.
-        subtitle.style.color = '#f00';
+        // subtitle.style.color = '#f00';
     }
 
     function closeModal() {
@@ -119,7 +119,7 @@ const BookDetails = () => {
                             style={customStyles}
                             contentLabel="Example Modal"
                         >
-                            <ModalBody></ModalBody>
+                            <ModalBody book= {book} id={id}></ModalBody>
                             {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
                             <button onClick={closeModal}>close</button>
                             <div>I am a modal</div>

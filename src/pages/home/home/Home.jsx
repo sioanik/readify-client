@@ -4,7 +4,7 @@ import Categories from '../categories/Categories';
 
 const Home = () => {
     const cats = useLoaderData()
-    console.log(cats);
+    // console.log(cats);
     return (
         <div>
             <Banner></Banner>

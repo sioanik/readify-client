@@ -143,14 +143,14 @@ const AddBook = () => {
                                     <div className="label">
                                         <span className="label-text">Rating</span>
                                     </div>
-                                    <input type="number" name="rating" placeholder="Enter Rating" className="input input-bordered w-full max-w-xs" min="0" max="5"/>
+                                    <input type="number" name="rating" placeholder="Enter Rating" className="input input-bordered w-full max-w-xs" min="0" max="5" step="any"/>
 
                                 </label>
                                 <label className="form-control w-full max-w-xs">
                                     <div className="label">
                                         <span className="label-text">Quantity</span>
                                     </div>
-                                    <input type="number" name="quantity" placeholder="Enter Available Quantity" className="input input-bordered w-full max-w-xs" />
+                                    <input type="number" name="quantity" placeholder="Enter Available Quantity" className="input input-bordered w-full max-w-xs" min={0}/>
 
                                 </label>
 
