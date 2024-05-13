@@ -23,6 +23,9 @@ const Login = () => {
             .then(result => {
                 // console.log(result.message);
                 toast("Logged in successfully");
+                // get access token 
+
+
             })
             .catch(error => {
                 // console.log(error);

@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <ProtectedRoute>
           <AllBooks></AllBooks>
         </ProtectedRoute>,
-        loader: ()=>fetch(`${import.meta.env.VITE_API_URL}/books`),
+        // loader: ()=>fetch(`${import.meta.env.VITE_API_URL}/books`, {credentials: 'include'}),
       },
       {
         path: '/add-book',

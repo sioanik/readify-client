@@ -1,24 +1,47 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Rating from "react-rating";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaListAlt } from "react-icons/fa";
 import { BsFillGridFill } from "react-icons/bs";
+import axios from "axios";
+import { AuthContext } from "../user/AuthProvider";
 
 
+
+// Programming-Hero Instructors
+// 11:19 PM
+// localhost:5000/books?email=example@gmail.com
+// Programming-Hero Instructors
+// 11:20 PM
+// const email = req.query.email
 
 
 const AllBooks = () => {
 
-    const allBooks = useLoaderData()
+    const { user } = useContext(AuthContext)
+    console.log(user.email);
+
+    // const allBooks = useLoaderData()
 
     const [books, setBooks] = useState([])
+
+    useEffect(() => {
+        const getData = async () => {
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/books/?email=${user.email}`, { withCredentials: true })
+            console.log(data);
+            setBooks(data)
+        }
+        getData()
+    }, [])
+    // 
+
     const [available, setAvailable] = useState([])
 
     const availableBooks = books.filter(item => item.quantity > 0)
 
-    useEffect(() => {
-        setBooks(allBooks)
-    }, [])
+    // useEffect(() => {
+    //     setBooks(allBooks)
+    // }, [])
 
     // console.log(availableBooks);
 
@@ -39,7 +62,7 @@ const AllBooks = () => {
             setView('grid')
         }
     }
-    console.log(view);
+    // console.log(view);
 
 
 

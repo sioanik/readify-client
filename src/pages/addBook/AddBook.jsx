@@ -42,7 +42,7 @@ const AddBook = () => {
 
         // }
 
-        fetch(`${import.meta.env.VITE_API_URL}/books`, {
+        fetch(`${import.meta.env.VITE_API_URL}/books`, {credentials: 'include'}, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
