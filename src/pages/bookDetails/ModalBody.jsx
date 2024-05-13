@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../user/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 
@@ -15,13 +16,29 @@ const ModalBody = ({ book, id }) => {
 
     const { user } = useContext(AuthContext)
 
-    console.log(book);
+    // console.log(book);
 
     const quantityNumber = parseInt(book.quantity)
-    console.log(quantityNumber);
+    // console.log(quantityNumber);
 
 
-    
+
+    // Checkeing if the book is on borrow list 
+    const [myItem, setMyItem] = useState([])
+
+    useEffect(() => {
+        fetch(`${import.meta.env.VITE_API_URL}/my-borrowed-books/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setMyItem(data)
+                // console.log(data);
+            })
+    }, [])
+
+
+
+
+
 
 
     const handleBorrow = (e) => {
@@ -36,9 +53,20 @@ const ModalBody = ({ book, id }) => {
         const borrowerName = user.displayName
 
         const borrowedBook = { refid, name, image, category, borrowDate, borrowerEmail, borrowerName }
-        console.log(borrowedBook);
+        // console.log(borrowedBook);
+
+        // console.log(myItem);
+        
+        const findBook = myItem.find(item => item.name == name)
+        
+        // console.log(findBook);
+        // return
 
 
+        if(!findBook){
+
+
+            
         fetch(`${import.meta.env.VITE_API_URL}/borrowed-books`, {
             method: "POST",
             headers: {
@@ -48,7 +76,7 @@ const ModalBody = ({ book, id }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
@@ -67,8 +95,13 @@ const ModalBody = ({ book, id }) => {
                 }
             })
 
+        }
+        else{
+            toast('Already borrowed, can not borrow twice!')
+        }
 
-            
+
+
 
     }
 
