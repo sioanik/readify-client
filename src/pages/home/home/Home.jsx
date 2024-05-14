@@ -1,6 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 import Banner from '../banner/Banner';
 import Categories from '../categories/Categories';
+import Testimonials from '../testimonials/Testimonials.jsx';
 
 const Home = () => {
     const cats = useLoaderData()
@@ -8,6 +9,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+
             <div className=''>
                 <div className='w-[90%] mx-auto'>
                 <div className='w-[80%] mx-auto mt-20 py-5 mb-14'>
@@ -21,6 +23,7 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <Testimonials></Testimonials>
         </div>
     );
 };
