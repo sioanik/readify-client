@@ -5,9 +5,9 @@ const Categories = ({ cats }) => {
    const {image, about, category} = cats
     // console.log(cats);
     return (
-        <div>
+        <div className="">
             <div className="card bg-base-100 shadow-xl image-full">
-                <figure><img src={image} alt="" /></figure>
+                <figure className=""><img className="w-full" src={image} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-4xl">{category}</h2>
                     <p>{about}</p>

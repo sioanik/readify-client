@@ -8,10 +8,18 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <div className='mx-10 mt-20 grid grid-cols-2 gap-6'>
-            {
-                cats.map((item,idx) => <Categories key={idx} cats = {item}></Categories>)
-            }
+            <div className=''>
+                <div className='w-[90%] mx-auto'>
+                <div className='w-[80%] mx-auto mt-20 py-5 mb-14'>
+                    <p className='text-center pb-4 text-2xl font-semibold'>Explore Book Categories</p>
+                    <p className='text-center'>Explore our diverse collection of book categories, ranging from fiction to non-fiction, mysteries to romance, and more.</p>
+                </div>
+                </div>
+                <div className='w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    {
+                        cats.map((item, idx) => <Categories key={idx} cats={item}></Categories>)
+                    }
+                </div>
             </div>
         </div>
     );

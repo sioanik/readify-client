@@ -127,7 +127,7 @@ const ModalBody = ({ book, id }) => {
                     </div>
 
                     <div className="flex justify-center">
-                        <input className="btn  btn-accent mt-8" type="submit" value="Borrow" disabled={quantityNumber === 0} />
+                        <input className="btn  btn-neutral mt-8" type="submit" value="Borrow" disabled={quantityNumber === 0} />
                     </div>
                 </form>
             </div>

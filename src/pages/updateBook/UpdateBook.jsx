@@ -46,7 +46,7 @@ const UpdateBook = () => {
 
         const newBook = { name, category, author, image, rating, quantity, description, contents, username, email }
 
-        console.log(newBook);
+        // console.log(newBook);
 
         fetch(`${import.meta.env.VITE_API_URL}/update-book/${id}`, {
             method: 'PUT',
@@ -83,11 +83,13 @@ const UpdateBook = () => {
     return (
         <div>
             <div>
-                <div className="w-[80%] mx-auto my-14">
-                    <p className="text-2xl text-center py-8">Update Book</p>
-                    <p className="text-center md:px-20">Update your existing book here</p>
+            <div className='w-[90%] mx-auto'>
+                <div className='w-[80%] mx-auto mt-10 py-5 mb-5'>
+                    <p className='text-center pb-4 text-2xl font-semibold'>Update Book</p>
+                    <p className='text-center'>Modify your existing book</p>
                 </div>
-                <div className="mt-10 px-10 mx-auto">
+                </div>
+                <div className="px-10 mx-auto">
                     <form onSubmit={handleUpdateBook}>
                         <div className="flex justify-center gap-6">
                             <div>
@@ -205,7 +207,7 @@ const UpdateBook = () => {
                             </div>
                         </div>
                         <div className="flex justify-center">
-                            <input className="btn  btn-primary mt-8" type="submit" value="Update Book" />
+                            <input className="btn  btn-neutral mt-8" type="submit" value="Update Book" />
                         </div>
                     </form>
                 </div>

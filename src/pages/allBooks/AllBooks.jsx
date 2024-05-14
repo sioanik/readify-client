@@ -5,21 +5,15 @@ import { FaListAlt } from "react-icons/fa";
 import { BsFillGridFill } from "react-icons/bs";
 import axios from "axios";
 import { AuthContext } from "../user/AuthProvider";
+import { FaStar } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa";
 
-
-
-// Programming-Hero Instructors
-// 11:19 PM
-// localhost:5000/books?email=example@gmail.com
-// Programming-Hero Instructors
-// 11:20 PM
-// const email = req.query.email
 
 
 const AllBooks = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user.email);
+    // console.log(user.email);
 
     // const allBooks = useLoaderData()
 
@@ -27,13 +21,15 @@ const AllBooks = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/books/?email=${user.email}`, { withCredentials: true })
-            console.log(data);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/books?email=${user.email}`, { withCredentials: true })
+            // console.log(data);
             setBooks(data)
         }
         getData()
-    }, [])
-    // 
+    }, [user.email])
+
+
+
 
     const [available, setAvailable] = useState([])
 
@@ -67,7 +63,7 @@ const AllBooks = () => {
 
 
     return (
-        <div>
+        <div className="w-[90%] mx-auto">
             <div className="">
 
                 <div className="flex justify-end mr-20 ">
@@ -81,6 +77,10 @@ const AllBooks = () => {
                         </div>
                     </label>
                 </div>
+                <div className='w-[80%] mx-auto mt-10 py-5 mb-5'>
+                    <p className='text-center pb-4 text-2xl font-semibold'>All Books</p>
+                    <p className='text-center'>Discover our comprehensive library with a vast selection of books covering various genres, interests, and topics for every reader.</p>
+                </div>
 
                 <div className="flex justify-center mb-20">
                     <button onClick={handleAvailable} className="btn btn-neutral">Show Only Available</button>
@@ -91,27 +91,36 @@ const AllBooks = () => {
                     <div>
 
 
-                        <div className="grid grid-cols-2 gap-20 mx-20">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-14">
                             {
                                 books.map((item, idx) =>
                                     <div className="" key={idx}>
-                                        <div className="border-4 overflow-hidden  rounded-lg shadow-lg">
+                                        <div className="border-4 overflow-hidden text-center rounded-lg shadow-lg">
                                             <div className="px-4 py-2">
                                                 <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">{item.name}</h1>
                                                 <p className="mt-1 text-base text-gray-600 dark:text-gray-400">{item.category}</p>
                                                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400"><span>Author- </span>{item.author}</p>
                                             </div>
 
-                                            <img className="object-contain w-full h-48 mt-2" src={item.image} alt="" />
+                                            <img className="object-contain w-full h-48 my-3" src={item.image} alt="" />
 
-                                            <div className="flex items-center justify-between px-4 py-2 bg-slate-300">
+                                            <div className="flex flex-col lg:flex-row items-center justify-evenly px-4 py-2 bg-slate-300">
                                                 {/* <h1 className="text-lg font-bold text-white"></h1> */}
-                                                <div className="">
+                                                {/* <div className="">
                                                     <Rating
                                                         initialRating={item.rating}></Rating>
+                                                </div> */}
+                                                <div className="">
+                                                    <Rating
+                                                        emptySymbol={<FaRegStar />
+                                                    }
+                                                        fullSymbol={<FaStar />
+                                                    }
+                                                    initialRating={item.rating}
+                                                    />
                                                 </div>
                                                 <Link to={`/update-book/${item._id}`}>
-                                                    <button className="px-2 py-1 text-lg font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-accent rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Update</button>
+                                                    <button className="btn btn-sm btn-neutral my-5 lg:my-0">Update</button>
                                                 </Link>
                                             </div>
                                         </div>
@@ -128,7 +137,7 @@ const AllBooks = () => {
                             {/* table upper part  */}
 
                             <div className="overflow-x-auto">
-                                <table className="table">
+                                <table className="table md:table-xs">
                                     {/* head */}
                                     <thead>
                                         <tr>
@@ -147,7 +156,7 @@ const AllBooks = () => {
                                             <tbody key={idx}>
                                                 {/* row 1 */}
                                                 <tr>
-                                                    <td>
+                                                    <td className="">
                                                         <div className="flex items-center gap-3">
                                                             <div className="avatar">
                                                                 <div className="mask mask-squircle w-12 h-12">
@@ -163,13 +172,18 @@ const AllBooks = () => {
                                                         {item.author}
                                                     </td>
                                                     <td>{item.category}</td>
-                                                    <td>
-                                                        <Rating
-                                                            initialRating={item.rating}></Rating>
+                                                    <td className="min-w-20">
+                                                    <Rating
+                                                        emptySymbol={<FaRegStar />
+                                                    }
+                                                        fullSymbol={<FaStar />
+                                                    }
+                                                    initialRating={item.rating}
+                                                    />
                                                     </td>
                                                     <th>
                                                         <Link to={`/update-book/${item._id}`}>
-                                                            <button className="px-2 py-1 text-lg font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-accent rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Update</button>
+                                                            <button className="btn btn-neutral my-5 lg:my-0  ">Update</button>
                                                         </Link>
                                                     </th>
                                                 </tr>

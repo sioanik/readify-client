@@ -113,7 +113,7 @@ const AuthProvider = ({ children }) => {
             else {
                 axios.post(`${import.meta.env.VITE_API_URL}/logout`, loggedUser, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                     })
 
                 setUser(null)

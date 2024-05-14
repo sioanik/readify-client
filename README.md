@@ -1,8 +1,13 @@
-# React + Vite
+# Readify Library Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [Readify Library Management System](https://project-readify.web.app/login)
 
-Currently, two official plugins are available:
+## Selected Category: 
+Library Management System
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features:
+- **User Authentication:** Secure login and registration system for librarians and users.
+- **Book Management:** Easily add, edit, and remove books from the library catalog.
+- **Borrowing and Returning:** Streamlined process for users to borrow and return books with due date reminders.
+- **Responsive Website:** Ensure seamless access and usability across various devices and screen sizes.
+- **Eye-Catchy Design:** Engage users with visually appealing interface and intuitive design.

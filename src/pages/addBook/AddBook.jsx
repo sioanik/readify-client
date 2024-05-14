@@ -8,7 +8,7 @@ const AddBook = () => {
 
     const { user } = useContext(AuthContext)
 
-    const handleAddBook  = (e) => {
+    const handleAddBook = (e) => {
         e.preventDefault()
 
 
@@ -42,7 +42,7 @@ const AddBook = () => {
 
         // }
 
-        fetch(`${import.meta.env.VITE_API_URL}/books`, {credentials: 'include'}, {
+        fetch(`${import.meta.env.VITE_API_URL}/books`, { credentials: 'include' }, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const AddBook = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
@@ -78,9 +78,11 @@ const AddBook = () => {
     return (
         <div>
             <div>
-                <div className="w-[80%] mx-auto my-14">
-                    <p className="text-2xl text-center py-8">Add Book</p>
-                    <p className="text-center md:px-20">Expand your literary universe by adding a new book to your library's collection.</p>
+                <div className='w-[90%] mx-auto'>
+                    <div className='w-[80%] mx-auto mt-10 py-5 mb-5'>
+                        <p className='text-center pb-4 text-2xl font-semibold'>Add Book</p>
+                        <p className='text-center'>Expand your literary universe by adding a new book to your library's collection</p>
+                    </div>
                 </div>
                 <div className="mt-10 px-10 mx-auto">
                     <form onSubmit={handleAddBook}>
@@ -143,14 +145,14 @@ const AddBook = () => {
                                     <div className="label">
                                         <span className="label-text">Rating</span>
                                     </div>
-                                    <input type="number" name="rating" placeholder="Enter Rating" className="input input-bordered w-full max-w-xs" min="0" max="5" step="any"/>
+                                    <input type="number" name="rating" placeholder="Enter Rating" className="input input-bordered w-full max-w-xs" min="0" max="5" step="any" />
 
                                 </label>
                                 <label className="form-control w-full max-w-xs">
                                     <div className="label">
                                         <span className="label-text">Quantity</span>
                                     </div>
-                                    <input type="number" name="quantity" placeholder="Enter Available Quantity" className="input input-bordered w-full max-w-xs" min={0}/>
+                                    <input type="number" name="quantity" placeholder="Enter Available Quantity" className="input input-bordered w-full max-w-xs" min={0} />
 
                                 </label>
 
@@ -181,26 +183,26 @@ const AddBook = () => {
 
                         <div className="flex justify-center mt-4">
                             <div>
-                            <label className="form-control w-full max-w-xs">
-                                <div className="label">
-                                    <span className="label-text">User Email</span>
-                                </div>
-                                <input type="email" name="useremail" placeholder="User Email" defaultValue={user.email}  className="input input-bordered w-full max-w-xs" disabled />
+                                <label className="form-control w-full max-w-xs">
+                                    <div className="label">
+                                        <span className="label-text">User Email</span>
+                                    </div>
+                                    <input type="email" name="useremail" placeholder="User Email" defaultValue={user.email} className="input input-bordered w-full max-w-xs" disabled />
 
-                            </label>
-                        </div>
+                                </label>
+                            </div>
                             <div>
-                            <label className="form-control w-full max-w-xs">
-                                <div className="label">
-                                    <span className="label-text">User Name</span>
-                                </div>
-                                <input type="text" name="username" placeholder="User Name" defaultValue={user.displayName} className="input input-bordered w-full max-w-xs" disabled />
+                                <label className="form-control w-full max-w-xs">
+                                    <div className="label">
+                                        <span className="label-text">User Name</span>
+                                    </div>
+                                    <input type="text" name="username" placeholder="User Name" defaultValue={user.displayName} className="input input-bordered w-full max-w-xs" disabled />
 
-                            </label>
-                        </div>
+                                </label>
+                            </div>
                         </div>
                         <div className="flex justify-center">
-                            <input className="btn  btn-primary mt-8" type="submit" value="Add Book" />
+                            <input className="btn  btn-neutral mt-8" type="submit" value="Add Book" />
                         </div>
                     </form>
                 </div>

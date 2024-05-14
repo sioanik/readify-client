@@ -18,7 +18,7 @@ const Register = () => {
         const email = e.target.email.value
         const image = e.target.photo.value
         const password = e.target.password.value
-        console.log(name, email, image, password);
+        // console.log(name, email, image, password);
 
 
         if (password.length < 6) {

@@ -6,10 +6,11 @@ const Footer = () => {
     return (
         <div>
             <footer className="">
-                <div className="container mt-12 px-6 py-8 mx-auto">
+                <div className="container px-6 py-10 mx-auto">
+                <hr className="my-10 border-gray-200 dark:border-gray-700" />
                     <div className="flex flex-col items-center text-center">
                         <a href="/">
-                            <p className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text text-2xl font-extrabold">Readify</p>
+                            <p className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text text-xl font-bold">Readify</p>
                         </a>
 
                         <p className="max-w-md mx-auto mt-4 text-gray-500 dark:text-gray-400">Unlock the world of knowledge with our vast collection. Explore, discover, and delve into the realm of books with ease.</p>
