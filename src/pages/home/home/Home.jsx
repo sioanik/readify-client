@@ -2,6 +2,7 @@ import { useLoaderData } from 'react-router-dom';
 import Banner from '../banner/Banner';
 import Categories from '../categories/Categories';
 import Testimonials from '../testimonials/Testimonials.jsx';
+import Authors from '../authors/Authors.jsx';
 
 const Home = () => {
     const cats = useLoaderData()
@@ -24,6 +25,7 @@ const Home = () => {
                 </div>
             </div>
             <Testimonials></Testimonials>
+            <Authors></Authors>
         </div>
     );
 };

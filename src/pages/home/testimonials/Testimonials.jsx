@@ -14,7 +14,7 @@ const Testimonials = () => {
         getData()
     }, [])
 
-    console.log(testi);
+    // console.log(testi);
 
     return (
         <div className="w-[90%] mx-auto">
