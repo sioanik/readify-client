@@ -1,6 +1,6 @@
 # Readify Library Management System
 
-**Live Site:** [Readify Library Management System](https://project-readify.web.app/login)
+**Live Site:** [Readify Library Management System](https://project-readify.web.app/)
 
 ## Selected Category: 
 Library Management System
