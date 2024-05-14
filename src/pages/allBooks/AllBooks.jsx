@@ -21,9 +21,11 @@ const AllBooks = () => {
 
     useEffect(() => {
         const getData = async () => {
+            if(user?.email){
             const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/books?email=${user.email}`, { withCredentials: true })
             // console.log(data);
             setBooks(data)
+            }
         }
         getData()
     }, [user.email])

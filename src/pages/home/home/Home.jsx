@@ -11,8 +11,8 @@ const Home = () => {
         <div>
             <Banner></Banner>
 
-            <div className=''>
-                <div className='w-[90%] mx-auto'>
+            <div className='w-[90%] mx-auto'>
+                <div className=''>
                 <div className='w-[80%] mx-auto mt-20 py-5 mb-14'>
                     <p className='text-center pb-4 text-2xl font-semibold'>Explore Book Categories</p>
                     <p className='text-center'>Explore our diverse collection of book categories, ranging from fiction to non-fiction, mysteries to romance, and more.</p>
@@ -24,8 +24,8 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <Testimonials></Testimonials>
             <Authors></Authors>
+            <Testimonials></Testimonials>
         </div>
     );
 };

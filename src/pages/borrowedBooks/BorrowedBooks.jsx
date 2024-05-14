@@ -22,6 +22,12 @@ const BorrowedBooks = () => {
     }, [])
 
 
+    const formatDate = (dateString) => {
+        const dateObject = new Date(dateString);
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return dateObject.toLocaleDateString('en-US', options);
+    };
+
 
     const handleDeleteCraft = (id) => {
 
@@ -43,7 +49,7 @@ const BorrowedBooks = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data);
+                            // console.log(data);
                             if (data.deletedCount > 0) {
                                 const remaining = myItem.filter(item => item.refid !== id)
                                 setMyItem(remaining)
@@ -58,12 +64,8 @@ const BorrowedBooks = () => {
                         })
                 }
             })
-
-
-
-
-
     }
+
 
     return (
         <div className="w-[90%] mx-auto">
@@ -80,13 +82,16 @@ const BorrowedBooks = () => {
                                 <div className="px-4 py-2">
                                     <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">{item.name}</h1>
                                     <p className="mt-1 text-base text-gray-600 dark:text-gray-400">{item.category}</p>
+
                                 </div>
 
                                 <img className="object-contain w-full h-48 my-3" src={item.image} alt="" />
+                                <p className="mt-1 text-sm">Borrowed- {formatDate(item.borrowDate)}</p>
+                                <p className="mt-1 text-sm">Return before- {formatDate(item.returnDate)}</p>
 
                                 <div className="flex flex-col lg:flex-row items-center justify-evenly px-4 py-2">
 
-                                        <button onClick={() => handleDeleteCraft(item.refid)} className="btn btn-neutral btn-block my-5 lg:my-0">Return</button>
+                                    <button onClick={() => handleDeleteCraft(item.refid)} className="btn btn-neutral btn-block my-5 lg:my-0">Return</button>
                                 </div>
                             </div>
 

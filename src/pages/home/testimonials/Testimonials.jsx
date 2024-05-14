@@ -18,12 +18,9 @@ const Testimonials = () => {
 
     return (
         <div className="w-[90%] mx-auto">
-            <div className="container px-6 py-10 mx-auto">
-                <div className=''>
-                    <div className='w-[80%] mx-auto mt-20 py-5 mb-14'>
-                        <p className='text-center pb-4 text-2xl font-semibold'>What Our Readers Say</p>
-                        <p className='text-center'>Our readers share their love for immersive storytelling experiences.</p>
-                    </div>
+                <div className='w-[80%] mx-auto mt-20 py-5 mb-14'>
+                    <p className='text-center pb-4 text-2xl font-semibold'>What Our Readers Say</p>
+                    <p className='text-center'>Our readers share their love for immersive storytelling experiences.</p>
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-7">
@@ -49,7 +46,6 @@ const Testimonials = () => {
                         )
                     }
                 </div>
-            </div>
         </div>
     );
 };

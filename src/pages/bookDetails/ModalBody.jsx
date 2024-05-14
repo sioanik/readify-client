@@ -48,11 +48,14 @@ const ModalBody = ({ book, id }) => {
         const name = book.name
         const image = book.image
         const category = book.category
-        const borrowDate = startDate
+        const returnDate = startDate
+        const borrowDate = new Date()
+        // console.log(borrowDate);
+
         const borrowerEmail = user.email
         const borrowerName = user.displayName
 
-        const borrowedBook = { refid, name, image, category, borrowDate, borrowerEmail, borrowerName }
+        const borrowedBook = { refid, name, image, category, borrowDate, returnDate, borrowerEmail, borrowerName }
         // console.log(borrowedBook);
 
         // console.log(myItem);

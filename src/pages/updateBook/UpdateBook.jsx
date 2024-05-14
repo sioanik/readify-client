@@ -33,8 +33,8 @@ const UpdateBook = () => {
         const image = form.image.value
         const rating = form.rating.value
         const quantity = form.quantity.value
-        const description = form.description.value
-        const contents = form.contents.value
+        // const description = form.description.value
+        // const contents = form.contents.value
         const username = form.username.value
         const email = form.useremail.value
 
@@ -44,7 +44,7 @@ const UpdateBook = () => {
 
 
 
-        const newBook = { name, category, author, image, rating, quantity, description, contents, username, email }
+        const newBook = { name, category, author, image, rating, quantity, username, email }
 
         // console.log(newBook);
 
@@ -105,8 +105,8 @@ const UpdateBook = () => {
                                     <div className="label">
                                         <span className="label-text">Category Name</span>
                                     </div>
-                                    <select className="input input-bordered w-full max-w-xs" name="" id="category">
-                                        <option value="">{item.category}</option>
+                                    <select className="input input-bordered w-full max-w-xs" name="" id="category" required>
+                                        <option value="">Select</option>
 
                                         <option value="Novel">Novel</option>
 
@@ -164,7 +164,7 @@ const UpdateBook = () => {
 
                             </div>
                         </div>
-                        <div className="flex justify-center">
+                        {/* <div className="flex justify-center">
                             <label className="form-control w-full max-w-md">
                                 <div className="label">
                                     <span className="label-text">Short Book Description</span>
@@ -173,8 +173,8 @@ const UpdateBook = () => {
                                 <textarea defaultValue={item.description} type="text" name="description" placeholder="Enter Short Description" className="input input-bordered w-full max-w-md"></textarea>
 
                             </label>
-                        </div>
-                        <div className="flex justify-center">
+                        </div> */}
+                        {/* <div className="flex justify-center">
                             <label className="form-control w-full max-w-md">
                                 <div className="label">
                                     <span className="label-text">Book Contents</span>
@@ -184,7 +184,7 @@ const UpdateBook = () => {
                                 <textarea defaultValue={item.contents} type="text" name="contents" placeholder="Enter Book Contents" className="input input-bordered w-full max-w-md"></textarea>
 
                             </label>
-                        </div>
+                        </div> */}
 
                         <div className="flex justify-center mt-4">
                             <div>

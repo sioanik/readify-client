@@ -101,11 +101,12 @@ const AuthProvider = ({ children }) => {
             const loggedUser = { email: currentUser?.email }
             if (currentUser) {
                 // console.log(currentUser);
-                setUser(currentUser)
 
                 // if user exists then issue a token 
                 axios.post(`${import.meta.env.VITE_API_URL}/jwt`, loggedUser, { withCredentials: true })
                     .then(res => {
+                        setUser(currentUser)
+                        setLoading(false)
                         // console.log('token response', res.data);
                     })
 
@@ -113,12 +114,16 @@ const AuthProvider = ({ children }) => {
             else {
                 axios.post(`${import.meta.env.VITE_API_URL}/logout`, loggedUser, { withCredentials: true })
                     .then(res => {
+                        setUser(null)
+                        setLoading(false)
+
+
                         // console.log(res.data);
                     })
 
-                setUser(null)
+                // setUser(null)
             }
-            setLoading(false)
+            // setLoading(false)
             // console.log(currentUser);
 
         });

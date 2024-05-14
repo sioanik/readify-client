@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../user/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -33,16 +33,57 @@ const AddBook = () => {
 
         // console.log(newBook);
 
-        // try {
-        //     const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/books`, newBook)
-        //     console.log(data);
-        // }
-        // catch (error){
-        //     console.log(error.message);
 
-        // }
 
-        fetch(`${import.meta.env.VITE_API_URL}/books`, { credentials: 'include' }, {
+        // const getData = async () => {
+        //     try {
+        //       const response = await axios.post(`${import.meta.env.VITE_API_URL}/books`, {
+        //         withCredentials: true,
+        //         headers: {
+        //           'Content-Type': 'application/json'
+        //         }
+        //       });
+              
+        //       const data = response.data;
+        //       // Process the received data
+        //     } catch (error) {
+        //       // Handle error
+        //     }
+        //   }
+          
+
+        
+
+        // const getData = async () => {
+        //     const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/books`, { withCredentials: true })
+
+        //     .then(data => {
+        //         // console.log(data);
+        //         if (data.insertedId) {
+        //             Swal.fire({
+        //                 title: 'Success!',
+        //                 text: 'Book added successfully',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'Close'
+        //             })
+        //         } else {
+        //             Swal.fire({
+        //                 title: 'Error!',
+        //                 text: 'Something went wrong!',
+        //                 icon: 'error',
+        //                 confirmButtonText: 'Close'
+        //             })
+        //         }
+        //     })
+        // }
+        // getData()
+
+
+
+
+
+        fetch(`${import.meta.env.VITE_API_URL}/books`, {
+            credentials: 'include',
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
