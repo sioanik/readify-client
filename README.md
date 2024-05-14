@@ -5,6 +5,9 @@
 ## Selected Category: 
 Library Management System
 
+## Assignment_ID:
+assignment_category_0008
+
 ## Features:
 - **User Authentication:** Secure login and registration system for librarians and users.
 - **Book Management:** Easily add, edit, and remove books from the library catalog.
