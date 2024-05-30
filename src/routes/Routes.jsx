@@ -11,6 +11,8 @@ import ErrorPage from "../pages/error/ErrorPage";
 import CategoryItems from "../pages/categoryBooks/CategoryItems";
 import BookDetails from "../pages/bookDetails/BookDetails";
 import UpdateBook from "../pages/updateBook/UpdateBook";
+import RequestBook from "../pages/requestBook/RequestBook";
+import RequestedBooks from "../pages/requestedBooks/RequestedBooks";
 
 
 const router = createBrowserRouter([
@@ -51,6 +53,18 @@ const router = createBrowserRouter([
         path: '/borrowed-books',
         element: <ProtectedRoute>
           <BorrowedBooks></BorrowedBooks>
+        </ProtectedRoute>
+      },
+      {
+        path: '/requested-books',
+        element: <ProtectedRoute>
+          <RequestedBooks></RequestedBooks>
+        </ProtectedRoute>
+      },
+      {
+        path: '/request-book',
+        element: <ProtectedRoute>
+          <RequestBook></RequestBook>
         </ProtectedRoute>
       },
       {

@@ -33,14 +33,21 @@ const Navbar = () => {
         <li><NavLink to={'/'} >Home</NavLink></li>
 
         <li>
-            <NavLink to={'/all-books'}>All Books</NavLink>
+            <NavLink to={'/all-books'}>All</NavLink>
         </li>
         <li>
-            <NavLink to={'/add-book'}>Add Book</NavLink>
+            <NavLink to={'/add-book'}>Add</NavLink>
         </li>
         <li>
-            <NavLink to={'/borrowed-books'}>Borrowed Books</NavLink>
+            <NavLink to={'/borrowed-books'}>Borrowed</NavLink>
         </li>
+        {/* <li>
+            <NavLink to={'/request-book'}>Request Book</NavLink>
+        </li> */}
+        <li>
+            <NavLink to={'/requested-books'}>Requested</NavLink>
+        </li>
+       
     </>
 
     return (
