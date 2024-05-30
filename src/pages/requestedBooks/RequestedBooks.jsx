@@ -81,6 +81,7 @@ const RequestedBooks = () => {
                             <div className="px-4 py-2">
                                 <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">{item.name}</h1>
                                 <p className="mt-1 text-base text-gray-600 dark:text-gray-400">Category- {item.category}</p>
+                                <p className="mt-1 text-base text-gray-600 dark:text-gray-400">Author- {item.author}</p>
                                 {/* <p className="mt-1 text-base text-gray-600 dark:text-gray-400">{item._id}</p> */}
 
                             </div>
